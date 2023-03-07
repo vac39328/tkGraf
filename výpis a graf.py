@@ -1,6 +1,6 @@
 import tkinter as tk
+from tkinter import messagebox
 from tkinter import filedialog
- 
 import pylab as pl
 
 class Aplikation(tk.Tk):
@@ -12,15 +12,15 @@ class Aplikation(tk.Tk):
         self.bind("<Escape>", self.quit)
         self.lbl=tk.Label(self, text="Vyber soubor")
         self.lbl.pack()
-        self.chooseBtn = tk.Button(self, text="...", command=self.chooseBtn)
+        self.chooseBtn = tk.Button(self, text="...", command=self.choose )
         self.chooseBtn.pack()
-        self.showBtn = tk.Button(self, text="Show", command=self.showBtn)
+        self.showBtn = tk.Button(self, text="Show", command=self.show )
         self.showBtn.pack()
-        self.quitBtn = tk.Button(self, text="Quit", command=self.quitBtn)
+        self.quitBtn = tk.Button(self, text="Quit", command=self.quit )
         self.quitBtn.pack()
 
     def choose(self):
-        self.filename = filedialog.askopenfile()
+        self.filename = filedialog.askopenfilename()
         self.lbl.config(text=self.filename)
 
     def show(self):
@@ -39,6 +39,7 @@ class Aplikation(tk.Tk):
     def quit(self, event=None):
         super().quit()
 
-app = Aplikation
+
+app = Aplikation()
 app.mainloop()
 
