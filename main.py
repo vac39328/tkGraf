@@ -44,7 +44,7 @@ class Application(tk.Tk):
         self.fileBtn = tk.Button(self.fileFrame, text ='...', command=self.choosefile)
         self.fileBtn.pack(anchor='e')
 
-        self.dataVar = tk.StringVar()
+        self.dataVar = tk.StringVar(value="ROW")
         self.rowRadio = tk.Radiobutton(self.fileFrame, text='Data jsou v řádcích!', variable=self.dataVar, value='ROW')
         self.rowRadio.pack(anchor='w')
         self.columnRadio = tk.Radiobutton(self.fileFrame, text='Data jsou ve sloupcích!', variable=self.dataVar, value='COLUMN')
